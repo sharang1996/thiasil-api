@@ -1,54 +1,31 @@
 package com.thiasil.thiasil_api.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thiasil.thiasil_api.model.Dimensions;
+import com.thiasil.thiasil_api.model.Product;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.ResultActions;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.UUID;
 
-@ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Testcontainers
-class ProductControllerTest {
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-    @Autowired
-    private TestRestTemplate restTemplate;
 
-    @LocalServerPort
-    private int port;
+class ProductControllerTest extends E2ETest {
 
-    @Container
-    public static PostgreSQLContainer<?> postgreSQLContainer = new PostgreSQLContainer<>("postgres:latest")
-            .withDatabaseName("thiasildb")
-            .withUsername("test")
-            .withPassword("test");
+    private Product product;
 
-    @DynamicPropertySource
-    static void registerPgProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", postgreSQLContainer::getJdbcUrl);
-        registry.add("spring.datasource.username", postgreSQLContainer::getUsername);
-        registry.add("spring.datasource.password", postgreSQLContainer::getPassword);
-        registry.add("spring.datasource.driverClassName", ()->"org.postgresql.Driver");
-        registry.add("spring.jpa.database-platform", ()->"org.hibernate.dialect.PostgreSQLDialect");
-    }
-
-    private String getBaseUrl() {
-        return "http://localhost:" + port + "/api/v1/product";
-    }
+    private ResultActions resultActions;
 
     @BeforeEach
     void setUp() {
+        mapper = new ObjectMapper();
     }
 
     @AfterEach
@@ -56,26 +33,120 @@ class ProductControllerTest {
     }
 
     @Test
-    void getProductsByCategory() {
+    void canGetProductsByCategory() throws Exception {
+        givenMultipleProductsOfCategoryAlreadyExists();
+        whenGetProductsForCategoryRequestIsSent();
+        thenExpectOnlyProductsForCategoryAreReturned();
     }
 
     @Test
-    void createProduct() {
+    void canCreateProduct() throws Exception {
+        givenAProduct();
+        whenProductCreateRequestIsSent();
+        thenExpectProductIsCreated();
     }
 
     @Test
-    void updateProduct() {
+    void canUpdateProduct() {
     }
 
     @Test
-    void deleteProduct() {
+    void canDeleteProduct() {
     }
 
     @Test
-    void createProducts() {
+    void canCreateProducts() {
     }
 
     @Test
-    void getAllProducts() {
+    void canGetAllProducts() throws Exception {
+        givenMultipleProductsOfCategoryAlreadyExists();
+        whenGetAllProductsRequestIsSent();
+        thenExpectAllProductsAreReturned();
     }
+
+    private void givenAProduct() {
+        Dimensions dimension = new Dimensions(UUID.randomUUID(), 10,20,30,5,10,1);
+        product = new Product(UUID.randomUUID(), "testCategory", "test1Catalogue", 10, 25, dimension, "testConfiguration", 250.0);
+    }
+
+    private void givenAnotherProduct() {
+        Dimensions dimension = new Dimensions(UUID.randomUUID(), 10,20,30,5,10,1);
+        product = new Product(UUID.randomUUID(), "testCategory", "test2Catalogue", 10, 25, dimension, "testConfiguration", 300);
+    }
+
+    private void givenThirdProduct() {
+        Dimensions dimension = new Dimensions(UUID.randomUUID(), 10,20,30,5,10,1);
+        product = new Product(UUID.randomUUID(), "test2Category", "test3Catalogue", 10, 25, dimension, "testConfiguration", 300);
+    }
+
+    private void givenMultipleProductsOfCategoryAlreadyExists() throws Exception {
+        givenAProduct();
+        createProduct();
+        givenAnotherProduct();
+        createProduct();
+        givenThirdProduct();
+        createProduct();
+    }
+
+    private void createProduct() throws Exception {
+        mockMvc.perform(post("/api/v1/product")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(product)));
+    }
+
+    private void thenExpectProductIsCreated() throws Exception {
+        resultActions.andExpect(status().isOk())
+                .andExpect(jsonPath("$.category").value("testCategory"))
+                .andExpect(jsonPath("$.catalogueNumber").value("test1Catalogue"))
+                .andExpect(jsonPath("$.packageQuantity").value(10))
+                .andExpect(jsonPath("$.capacity").value(25))
+                .andExpect(jsonPath("$.dimensions.length").value(10))
+                .andExpect(jsonPath("$.dimensions.width").value(20))
+                .andExpect(jsonPath("$.dimensions.height").value(30))
+                .andExpect(jsonPath("$.dimensions.diameter").value(5))
+                .andExpect(jsonPath("$.dimensions.maxDiameter").value(10))
+                .andExpect(jsonPath("$.dimensions.minDiameter").value(1))
+                .andExpect(jsonPath("$.configuration").value("testConfiguration"))
+                .andExpect(jsonPath("$.price").value(250));
+    }
+
+    private void thenExpectOnlyProductsForCategoryAreReturned() throws Exception {
+        resultActions.andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(2))
+                .andExpect(jsonPath("$.[0].category").value("testCategory"))
+                .andExpect(jsonPath("$.[0].catalogueNumber").value("test1Catalogue"))
+                .andExpect(jsonPath("$.[1].category").value("testCategory"))
+                .andExpect(jsonPath("$.[1].catalogueNumber").value("test2Catalogue"));
+    }
+
+    private void thenExpectAllProductsAreReturned() throws Exception {
+        resultActions.andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(3))
+                .andExpect(jsonPath("$.[0].category").value("testCategory"))
+                .andExpect(jsonPath("$.[0].catalogueNumber").value("test1Catalogue"))
+                .andExpect(jsonPath("$.[1].category").value("testCategory"))
+                .andExpect(jsonPath("$.[1].catalogueNumber").value("test2Catalogue"))
+                .andExpect(jsonPath("$.[2].category").value("test2Category"))
+                .andExpect(jsonPath("$.[2].catalogueNumber").value("test3Catalogue"));
+    }
+
+    private void whenProductCreateRequestIsSent() throws Exception {
+        resultActions = mockMvc.perform(post("/api/v1/product")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(product)));
+    }
+
+    private void whenGetProductsForCategoryRequestIsSent() throws Exception {
+        resultActions = mockMvc.perform(get("/api/v1/product?category=testCategory")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(product)));
+    }
+
+    private void whenGetAllProductsRequestIsSent() throws Exception {
+        resultActions = mockMvc.perform(get("/api/v1/product/all")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(product)));
+    }
+
 }

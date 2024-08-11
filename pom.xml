@@ -61,18 +61,22 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Testcontainers for PostgreSQL (example, you can use other databases) -->
+		<!-- Testcontainers for MySql (example, you can use other databases) -->
 		<dependency>
 			<groupId>org.testcontainers</groupId>
-			<artifactId>postgresql</artifactId>
+			<artifactId>mysql</artifactId>
+			<version>1.20.0</version>
 			<scope>test</scope>
 		</dependency>
 
 		<!-- PostgreSQL JDBC Driver -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version>
 		</dependency>
+
 	</dependencies>
 
 	<build>
