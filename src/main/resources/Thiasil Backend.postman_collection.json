@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "ddda445e-68be-43f5-8616-4e34609cb4b1",
+		"name": "Thiasil Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37604437"
+	},
+	"item": [
+		{
+			"name": "Get All Products for category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/product?category=Regular Form Crucibles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"product"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Regular Form Crucibles"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"category\": \"Regular Form Crucibles\",\n    \"catalogueNumber\": \"1100/15\",\n    \"packageQuantity\": 36,\n    \"capacity\": 15 ,\n    \"dimensions\":{},\n    \"configuration\": \"\",\n    \"price\": 240.00 \n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create all products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n        {\n            \"category\": \"REGULAR FORM CRUCIBLES\",\n            \"catalogueNumber\": \"1100/15\",\n            \"capacity\": \"15\",\n            \"packageQuantity\": 36,\n            \"price\": 240,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"REGULAR FORM CRUCIBLES\",\n            \"catalogueNumber\": \"1100/25\",\n            \"capacity\": \"25\",\n            \"packageQuantity\": 30,\n            \"price\": 250,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"REGULAR FORM CRUCIBLES\",\n            \"catalogueNumber\": \"1100/50\",\n            \"capacity\": \"50\",\n            \"packageQuantity\": 20,\n            \"price\": 460,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"REGULAR FORM CRUCIBLES\",\n            \"catalogueNumber\": \"1100/80\",\n            \"capacity\": \"80\",\n            \"packageQuantity\": 6,\n            \"price\": 700,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"REGULAR FORM CRUCIBLES\",\n            \"catalogueNumber\": \"1100/100\",\n            \"capacity\": \"100\",\n            \"packageQuantity\": 6,\n            \"price\": 800,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"REGULAR FORM CRUCIBLES\",\n            \"catalogueNumber\": \"1100/150\",\n            \"capacity\": \"150\",\n            \"packageQuantity\": 5,\n            \"price\": 1000,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"REGULAR FORM CRUCIBLES\",\n            \"catalogueNumber\": \"1100/250\",\n            \"capacity\": \"250\",\n            \"packageQuantity\": 3,\n            \"price\": 1400,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"LIDS\",\n            \"catalogueNumber\": \"1120/15\",\n            \"capacity\": \"15\",\n            \"packageQuantity\": 36,\n            \"price\": 240,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"LIDS\",\n            \"catalogueNumber\": \"1120/25\",\n            \"capacity\": \"25\",\n            \"packageQuantity\": 30,\n            \"price\": 250,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"LIDS\",\n            \"catalogueNumber\": \"1120/50\",\n            \"capacity\": \"50\",\n            \"packageQuantity\": 20,\n            \"price\": 420,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"LIDS\",\n            \"catalogueNumber\": \"1120/80\",\n            \"capacity\": \"80\",\n            \"packageQuantity\": 12,\n            \"price\": 650,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"LIDS\",\n            \"catalogueNumber\": \"1120/100\",\n            \"capacity\": \"100\",\n            \"packageQuantity\": 12,\n            \"price\": 750,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"LIDS\",\n            \"catalogueNumber\": \"1120/150\",\n            \"capacity\": \"150\",\n            \"packageQuantity\": 6,\n            \"price\": 1000,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"LIDS\",\n            \"catalogueNumber\": \"1120/250\",\n            \"capacity\": \"250\",\n            \"packageQuantity\": 6,\n            \"price\": 1300,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CRUCIBLE TALL FORM\",\n            \"catalogueNumber\": \"1110/10\",\n            \"capacity\": \"15\",\n            \"packageQuantity\": 30,\n            \"price\": 260,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CRUCIBLE TALL FORM\",\n            \"catalogueNumber\": \"1100/30\",\n            \"capacity\": \"30\",\n            \"packageQuantity\": 20,\n            \"price\": 380,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CRUCIBLE TALL FORM\",\n            \"catalogueNumber\": \"1100/50\",\n            \"capacity\": \"50\",\n            \"packageQuantity\": 15,\n            \"price\": 560,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"GOOCH CRUCIBLE\",\n            \"catalogueNumber\": \"1130/20\",\n            \"capacity\": \"20\",\n            \"packageQuantity\": 25,\n            \"price\": 650,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"GOOCH CRUCIBLE\",\n            \"catalogueNumber\": \"1130/30\",\n            \"capacity\": \"30\",\n            \"packageQuantity\": 20,\n            \"price\": 850,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"GOOCH CRUCIBLE\",\n            \"catalogueNumber\": \"1130/50\",\n            \"capacity\": \"50\",\n            \"packageQuantity\": 15,\n            \"price\": 1100,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BASIN WITH SPOUT\",\n            \"catalogueNumber\": \"1140/45\",\n            \"capacity\": \"20\",\n            \"packageQuantity\": 12,\n            \"price\": 280,\n            \"dimensions\": {\n                \"maxDiameter\": \"48\",\n                \"minDiameter\": \"52\",\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BASIN WITH SPOUT\",\n            \"catalogueNumber\": \"1140/55\",\n            \"capacity\": \"35\",\n            \"packageQuantity\": 12,\n            \"price\": 380,\n            \"dimensions\": {\n                \"maxDiameter\": \"55\",\n                \"minDiameter\": \"60\",\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BASIN WITH SPOUT\",\n            \"catalogueNumber\": \"1140/75\",\n            \"capacity\": \"70\",\n            \"packageQuantity\": 8,\n            \"price\": 650,\n            \"dimensions\": {\n                \"maxDiameter\": \"70\",\n                \"minDiameter\": \"75\",\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BASIN WITH SPOUT\",\n            \"catalogueNumber\": \"1140/85\",\n            \"capacity\": \"100\",\n            \"packageQuantity\": 6,\n            \"price\": 800,\n            \"dimensions\": {\n                \"maxDiameter\": \"80\",\n                \"minDiameter\": \"85\",\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BASIN WITH SPOUT\",\n            \"catalogueNumber\": \"1140/95\",\n            \"capacity\": \"150\",\n            \"packageQuantity\": 6,\n            \"price\": 1000,\n            \"dimensions\": {\n                \"maxDiameter\": \"90\",\n                \"minDiameter\": \"95\",\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BASIN WITH SPOUT\",\n            \"catalogueNumber\": \"1140/103\",\n            \"capacity\": \"200\",\n            \"packageQuantity\": 6,\n            \"price\": 1300,\n            \"dimensions\": {\n                \"maxDiameter\": \"98\",\n                \"minDiameter\": \"103\",\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BASIN WITH SPOUT\",\n            \"catalogueNumber\": \"1140/110\",\n            \"capacity\": \"250\",\n            \"packageQuantity\": 5,\n            \"price\": 1400,\n            \"dimensions\": {\n                \"maxDiameter\": \"107\",\n                \"minDiameter\": \"110\",\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CRUCIBLE VOLATILE MATTER DETERMINE\",\n            \"catalogueNumber\": \"1150/C\",\n            \"configuration\": \"CRUCIBLE\",\n            \"packageQuantity\": 10,\n            \"price\": 480,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CRUCIBLE VOLATILE MATTER DETERMINE\",\n            \"catalogueNumber\": \"1150/L\",\n            \"configuration\": \"LID\",\n            \"packageQuantity\": 10,\n            \"price\": 180,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CRUCIBLE VOLATILE MATTER DETERMINE\",\n            \"catalogueNumber\": \"1150/L\",\n            \"configuration\": \"PLUNGER\",\n            \"packageQuantity\": 10,\n            \"price\": 320,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"MUFFLE STAND\",\n            \"catalogueNumber\": \"1160/2\",\n            \"description\": \"FOR 2 VM CRUCIBLE(2 HOLES)\",\n            \"packageQuantity\": 4,\n            \"price\": 850,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null\n        },\n        {\n            \"category\": \"MUFFLE STAND\",\n            \"catalogueNumber\": \"1160/4\",\n            \"description\": \"FOR 4 VM CRUCIBLE(4 HOLES)\",\n            \"packageQuantity\": 2,\n            \"price\": 1500,\n            \"dimensions\": {\n                \"length\": null,\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null\n        },\n        {\n            \"category\": \"CIRCULAR CAPSULES\",\n            \"catalogueNumber\": \"1170/40\",\n            \"capacity\": \"10\",\n            \"packageQuantity\": 20,\n            \"price\": 380,\n            \"dimensions\": {\n                \"height\": \"15\",\n                \"diameter\": \"40\",\n                \"length\": null,\n                \"width\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CIRCULAR CAPSULES\",\n            \"catalogueNumber\": \"1170/48\",\n            \"capacity\": \"20\",\n            \"packageQuantity\": 20,\n            \"price\": 480,\n            \"dimensions\": {\n                \"height\": \"15\",\n                \"diameter\": \"48\",\n                \"length\": null,\n                \"width\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CIRCULAR CAPSULES\",\n            \"catalogueNumber\": \"1170/54\",\n            \"capacity\": \"25\",\n            \"packageQuantity\": 20,\n            \"price\": 560,\n            \"dimensions\": {\n                \"height\": \"15\",\n                \"diameter\": \"54\",\n                \"length\": null,\n                \"width\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CIRCULAR CAPSULE GROUND LID QUARTZ\",\n            \"catalogueNumber\": \"1180/38\",\n            \"packageQuantity\": 12,\n            \"price\": 750,\n            \"dimensions\": {\n                \"height\": \"11\",\n                \"diameter\": \"38\",\n                \"length\": null,\n                \"width\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"CIRCULAR CAPSULE GROUND LID QUARTZ\",\n            \"catalogueNumber\": \"1180/54\",\n            \"packageQuantity\": 12,\n            \"price\": 950,\n            \"dimensions\": {\n                \"height\": \"12\",\n                \"diameter\": \"54\",\n                \"length\": null,\n                \"width\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"TRIANGLES ON NICHROME WIRE\",\n            \"catalogueNumber\": \"1190/38\",\n            \"packageQuantity\": 10,\n            \"price\": 180,\n            \"dimensions\": {\n                \"length\": \"38\",\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"TRIANGLES ON NICHROME WIRE\",\n            \"catalogueNumber\": \"1190/50\",\n            \"packageQuantity\": 10,\n            \"price\": 200,\n            \"dimensions\": {\n                \"length\": \"50\",\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"TRIANGLES ON NICHROME WIRE\",\n            \"catalogueNumber\": \"1190/63\",\n            \"packageQuantity\": 10,\n            \"price\": 230,\n            \"dimensions\": {\n                \"length\": \"63\",\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"TRIANGLES ON NICHROME WIRE\",\n            \"catalogueNumber\": \"1190/75\",\n            \"packageQuantity\": 10,\n            \"price\": 250,\n            \"dimensions\": {\n                \"length\": \"75\",\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"TRIANGLES ON NICHROME WIRE\",\n            \"catalogueNumber\": \"1190/100\",\n            \"packageQuantity\": 10,\n            \"price\": 300,\n            \"dimensions\": {\n                \"length\": \"100\",\n                \"width\": null,\n                \"height\": null,\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BOATS COMBUSTION WITH HANDLE\",\n            \"catalogueNumber\": \"1200/1\",\n            \"packageQuantity\": 10,\n            \"price\": 350,\n            \"dimensions\": {\n                \"length\": \"50\",\n                \"width\": \"12\",\n                \"height\": \"8\",\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BOATS COMBUSTION WITH HANDLE\",\n            \"catalogueNumber\": \"1200/2\",\n            \"packageQuantity\": 10,\n            \"price\": 400,\n            \"dimensions\": {\n                \"length\": \"77\",\n                \"width\": \"12\",\n                \"height\": \"8\",\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BOATS COMBUSTION WITH HANDLE\",\n            \"catalogueNumber\": \"1200/3\",\n            \"packageQuantity\": 10,\n            \"price\": 560,\n            \"dimensions\": {\n                \"length\": \"78\",\n                \"width\": \"20\",\n                \"height\": \"12\",\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        },\n        {\n            \"category\": \"BOATS COMBUSTION WITH HANDLE\",\n            \"catalogueNumber\": \"1200/4\",\n            \"packageQuantity\": 10,\n            \"price\": 660,\n            \"dimensions\": {\n                \"length\": \"103\",\n                \"width\": \"20\",\n                \"height\": \"12\",\n                \"diameter\": null,\n                \"maxDiameter\": null,\n                \"minDiameter\": null\n            },\n            \"capacity\": null,\n            \"configuration\": null,\n            \"description\": null\n        }\n    ]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/product/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"308b463b-7a1f-4380-9f19-dbf859287ab6\",\n    \"category\": \"Regular Form Crucibles\",\n    \"catalogueNumber\": \"1100/15\",\n    \"packageQuantity\": 36,\n    \"capacity\": 15 ,\n    \"dimensions\":{},\n    \"configuration\": \"\",\n    \"price\": 240.00 \n    \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/product/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
